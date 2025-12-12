@@ -1,0 +1,128 @@
+.beta-section {
+    padding-bottom: 120px;
+}
+
+.beta-card {
+    background: #C7D3EF;
+    border-radius: var(--radius-lg);
+    padding: 60px;
+    color: var(--color-primary-dark);
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.beta-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.beta-content {
+    flex: 1;
+    text-align: left;
+}
+
+.beta-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.beta-image img {
+    max-width: 100%;
+    height: auto;
+    /* filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2)); */
+}
+
+
+
+.beta-title {
+    color: var(--color-primary-dark);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.beta-text {
+    color: var(--color-text-body);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+}
+
+.beta-form {
+    display: flex;
+    gap: 10px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    padding: 8px;
+    border-radius: var(--radius-full);
+    backdrop-filter: blur(10px);
+    max-width: 500px;
+}
+
+.beta-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 16px 24px;
+    color: var(--color-primary-dark);
+    font-size: 1.1rem;
+    outline: none;
+}
+
+.beta-input::placeholder {
+    color: rgba(16, 55, 116, 0.6);
+}
+
+.beta-btn {
+    padding: 16px 32px;
+    white-space: nowrap;
+}
+
+.beta-note {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+}
+
+@media (max-width: 968px) {
+    .beta-content-wrapper {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .beta-content {
+        text-align: center;
+    }
+
+    .beta-form {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .beta-card {
+        padding: 40px 20px;
+    }
+
+    .beta-form {
+        flex-direction: column;
+        background: transparent;
+        padding: 0;
+    }
+
+    .beta-input {
+        background: white;
+        border-radius: var(--radius-full);
+        text-align: center;
+    }
+
+    .beta-btn {
+        width: 100%;
+    }
+}

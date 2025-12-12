@@ -1,0 +1,250 @@
+.how-it-works-section {
+    background-color: var(--color-bg);
+}
+
+.how-it-works-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.how-it-works-header .title {
+    font-size: 2.5rem;
+}
+
+.how-it-works-header .subtitle {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.how-it-works-content {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.steps-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.step-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--color-accent-light);
+    flex-shrink: 0;
+}
+
+.step-icon {
+    font-size: 1.5rem;
+}
+
+.step-text h3 {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 8px;
+}
+
+.step-text p {
+    color: var(--color-text-body);
+    line-height: 1.5;
+}
+
+.step-connector {
+    width: 2px;
+    height: 40px;
+    background-color: var(--color-accent-light);
+    margin-left: 31px;
+    /* Center with icon (64/2 - 2/2) */
+    margin-top: -10px;
+    margin-bottom: -10px;
+    position: relative;
+    z-index: 0;
+}
+
+/* Visual Card */
+.how-it-works-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.visual-card {
+    background: white;
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: var(--shadow-xl);
+    width: 320px;
+    border: 1px solid var(--color-accent-light);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: 700;
+    color: var(--color-text-main);
+}
+
+.user-status {
+    font-size: 0.8rem;
+    color: var(--color-accent);
+}
+
+.status-indicator {
+    background: rgba(16, 55, 116, 0.05);
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.status-indicator.active {
+    background: rgba(72, 187, 120, 0.1);
+    color: #2F855A;
+}
+
+.pulse-dot {
+    width: 10px;
+    height: 10px;
+    background: #48BB78;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7);
+    animation: pulse-green 2s infinite;
+}
+
+.contacts-preview {
+    display: flex;
+    gap: 12px;
+}
+
+.contact-avatar {
+    width: 40px;
+    height: 40px;
+    background: #E2E8F0;
+    border-radius: 50%;
+}
+
+.contact-add {
+    width: 40px;
+    height: 40px;
+    border: 2px dashed #CBD5E0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #A0AEC0;
+    font-weight: 700;
+}
+
+@keyframes pulse-green {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(72, 187, 120, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(72, 187, 120, 0);
+    }
+}
+
+@media (max-width: 1024px) {
+    .how-it-works-header .title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .how-it-works-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .how-it-works-header {
+        margin-bottom: 40px;
+    }
+
+    /* Reordering: Header/Text -> Image -> Steps */
+    /* Note: The header is outside .how-it-works-content, so we only reorder the visual and the list */
+
+    .how-it-works-visual {
+        order: 1;
+        margin-bottom: 40px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .how-it-works-visual img {
+        box-shadow: none !important;
+        /* Override inline style */
+        border-radius: 24px;
+        max-width: 100%;
+    }
+
+    .steps-list {
+        order: 2;
+        gap: 32px;
+    }
+
+    .step-connector {
+        display: none;
+    }
+
+    .visual-card {
+        width: 100%;
+        max-width: 320px;
+        box-shadow: none;
+        border: none;
+    }
+
+    .step-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .step-icon-wrapper {
+        margin-bottom: 16px;
+    }
+}

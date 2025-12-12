@@ -1,0 +1,213 @@
+.download-section {
+    padding-bottom: 120px;
+}
+
+.download-card {
+    background: var(--color-accent);
+    border-radius: 32px;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    color: white;
+    box-shadow: 0 20px 40px rgba(107, 142, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background decoration */
+.download-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+}
+
+.download-content {
+    flex: 1;
+    z-index: 1;
+}
+
+.download-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.1;
+    color: white;
+    text-align: left;
+    -webkit-text-fill-color: white;
+}
+
+.download-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 40px;
+}
+
+.store-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.store-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 24px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.store-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-ios {
+    background: black;
+    color: white;
+}
+
+.btn-ios.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-android {
+    background: white;
+    color: black;
+}
+
+.store-icon {
+    font-size: 2rem;
+}
+
+.store-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.small-text {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.large-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* QR Codes */
+.qr-codes-container {
+    display: flex;
+    gap: 24px;
+    z-index: 1;
+}
+
+.qr-card {
+    background: white;
+    padding: 16px;
+    border-radius: 20px;
+    text-align: center;
+    width: 160px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.qr-placeholder {
+    width: 128px;
+    height: 128px;
+    background: #F7FAFC;
+    border-radius: 12px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.qr-placeholder img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+
+.os-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: black;
+    background: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.os-icon.android {
+    color: #3DDC84;
+}
+
+.qr-label {
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 4px;
+}
+
+.qr-sublabel {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+
+@media (max-width: 1024px) {
+    .download-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .download-title {
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    .store-buttons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .download-card {
+        padding: 30px 20px;
+    }
+
+    .download-title {
+        font-size: 2rem;
+    }
+
+    .store-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .store-btn {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .qr-codes-container {
+        display: none;
+        /* Hide QR codes on mobile as they are useless there */
+    }
+}
