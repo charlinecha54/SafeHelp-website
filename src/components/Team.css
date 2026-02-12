@@ -50,9 +50,9 @@
     z-index: 0;
 }
 
-/* Fond personnalisé pour Charline - Jaune/Orange */
+/* Fond personnalisé pour Charline - Orange/Rose */
 .team-card:nth-child(1) .team-img-wrapper::before {
-    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
 }
 
 /* Fond personnalisé pour Paul - Bleu/Cyan */
@@ -60,9 +60,9 @@
     background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
-/* Fond personnalisé pour Yanis - Orange/Rouge */
+/* Fond personnalisé pour Yanis - Jaune/Orange */
 .team-card:nth-child(3) .team-img-wrapper::before {
-    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
 }
 
 .team-avatar {
