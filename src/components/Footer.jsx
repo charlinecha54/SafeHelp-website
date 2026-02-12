@@ -34,7 +34,9 @@ const Footer = () => {
 
                         <div className="footer-col">
                             <h4>Contact</h4>
-                            <a href="mailto:contact@safehelp.app">contact@safehelp.app</a>
+                            <a href="mailto:charline.petit@epitech.eu">charline.petit@epitech.eu</a>
+                            <a href="mailto:paul.sinsoulieu@epitech.eu">paul.sinsoulieu@epitech.eu</a>
+                            <a href="mailto:yanis.ktab@epitech.eu">yanis.ktab@epitech.eu</a>
                             <a href="#">Support</a>
                         </div>
                     </div>
