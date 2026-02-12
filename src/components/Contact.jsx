@@ -32,6 +32,12 @@ const Contact = () => {
                             <a href="mailto:charline.petit@epitech.eu" className="contact-link">
                                 <span className="icon"><Mail size={20} /></span> charline.petit@epitech.eu
                             </a>
+                            <a href="mailto:paul.sinsoulieu@epitech.eu" className="contact-link">
+                                <span className="icon"><Mail size={20} /></span> paul.sinsoulieu@epitech.eu
+                            </a>
+                            <a href="mailto:yanis.ktab@epitech.eu" className="contact-link">
+                                <span className="icon"><Mail size={20} /></span> yanis.ktab@epitech.eu
+                            </a>
                             <a href="https://www.linkedin.com/company/appsafehelp" target="_blank" rel="noopener noreferrer" className="contact-link">
                                 <span className="icon"><Linkedin size={20} /></span> LinkedIn
                             </a>
