@@ -29,7 +29,7 @@ const Navbar = () => {
                     <li><a href="/#features">Fonctionnalités</a></li>
                     <li><a href="/#team">Équipe</a></li>
                     <li><a href="/#contact">Contact</a></li>
-                    <li><a href="/#download" className="btn btn-primary btn-sm">Rejoignez la Beta</a></li>
+                    <li><a href="/#download" className="btn btn-primary btn-sm">Rejoignez l'app</a></li>
                 </ul>
             </div>
         </nav>

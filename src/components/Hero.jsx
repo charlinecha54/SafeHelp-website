@@ -9,7 +9,7 @@ const Hero = () => {
                 <div className="hero-content">
                     <div className="hero-badge">
                         <span className="badge-dot"></span>
-                        Nouveau : Rejoignez la Beta
+                        Nouveau : Rejoignez l'app
                     </div>
                     <h1 className="hero-title">
                         SafeHelp, votre sécurité,<br />
@@ -19,7 +19,7 @@ const Hero = () => {
                         Le danger n'attend pas, SafeHelp non plus. SafeHelp transforme votre smartphone en un gardien intelligent qui veille sur vous et vos proches, 24h/24.
                     </p>
                     <div className="hero-buttons">
-                        <a href="#download" className="btn btn-primary">Rejoignez la beta</a>
+                        <a href="#download" className="btn btn-primary">Rejoignez l'app</a>
                         <a href="#features" className="btn btn-outline">Découvrir</a>
                     </div>
                 </div>
