@@ -3,45 +3,7 @@ import { Mail, Linkedin, Copy } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
-    });
-
     const [copiedEmail, setCopiedEmail] = useState('');
-    const [submitMessage, setSubmitMessage] = useState({ type: '', text: '' });
-
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        // Créer le contenu de l'email
-        const subject = encodeURIComponent(`Nouveau message de ${formData.name}`);
-        const body = encodeURIComponent(
-            `Nom: ${formData.name}\n` +
-            `Email: ${formData.email}\n\n` +
-            `Message:\n${formData.message}`
-        );
-
-        // Ouvrir le client email
-        window.location.href = `mailto:charline.petit@epitech.eu?subject=${subject}&body=${body}`;
-
-        // Afficher un message de confirmation
-        setSubmitMessage({
-            type: 'success',
-            text: 'Votre client email va s\'ouvrir. Cliquez sur "Envoyer" pour nous contacter !'
-        });
-
-        // Réinitialiser le formulaire après un court délai
-        setTimeout(() => {
-            setFormData({ name: '', email: '', message: '' });
-            setSubmitMessage({ type: '', text: '' });
-        }, 3000);
-    };
 
     const handleCopy = (email) => {
         navigator.clipboard.writeText(email);
@@ -103,56 +65,6 @@ const Contact = () => {
                             </a>
                         </div>
                     </div>
-
-                    <form className="contact-form" onSubmit={handleSubmit}>
-                        <div className="form-group">
-                            <label htmlFor="name">Nom</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                required
-                                placeholder="Votre nom"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                                placeholder="votre@email.com"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="message">Message</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                value={formData.message}
-                                onChange={handleChange}
-                                required
-                                rows="4"
-                                placeholder="Comment pouvons-nous vous aider ?"
-                            ></textarea>
-                        </div>
-                        {submitMessage.text && (
-                            <div className={`submit-message ${submitMessage.type}`}>
-                                {submitMessage.text}
-                            </div>
-                        )}
-                        <button
-                            type="submit"
-                            className="btn btn-primary btn-block"
-                        >
-                            Envoyer le message
-                        </button>
-                    </form>
                 </div>
             </div>
         </section>
