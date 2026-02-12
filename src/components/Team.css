@@ -55,9 +55,9 @@
     background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
 }
 
-/* Fond personnalisé pour Paul - Bleu/Cyan */
+/* Fond personnalisé pour Paul - Bleu */
 .team-card:nth-child(2) .team-img-wrapper::before {
-    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
 }
 
 /* Fond personnalisé pour Yanis - Vert */
