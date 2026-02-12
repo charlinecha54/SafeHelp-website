@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Linkedin, Copy } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
@@ -10,15 +11,47 @@ const Contact = () => {
     });
 
     const [copiedEmail, setCopiedEmail] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState({ type: '', text: '' });
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        alert('Merci pour votre message ! Nous vous répondrons bientôt.');
-        setFormData({ name: '', email: '', message: '' });
+        setIsSubmitting(true);
+        setSubmitMessage({ type: '', text: '' });
+
+        try {
+            // Configuration EmailJS - À CONFIGURER avec vos propres identifiants
+            // Visitez https://www.emailjs.com/ pour créer un compte gratuit
+            const result = await emailjs.send(
+                'YOUR_SERVICE_ID',  // Remplacer par votre Service ID
+                'YOUR_TEMPLATE_ID', // Remplacer par votre Template ID
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    message: formData.message,
+                    to_email: 'charline.petit@epitech.eu, paul.sinsoulieu@epitech.eu, yanis.ktab@epitech.eu'
+                },
+                'YOUR_PUBLIC_KEY'   // Remplacer par votre Public Key
+            );
+
+            setSubmitMessage({
+                type: 'success',
+                text: 'Merci pour votre message ! Nous vous répondrons bientôt.'
+            });
+            setFormData({ name: '', email: '', message: '' });
+        } catch (error) {
+            console.error('Erreur lors de l\'envoi du message:', error);
+            setSubmitMessage({
+                type: 'error',
+                text: 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement par email.'
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const handleCopy = (email) => {
@@ -119,7 +152,18 @@ const Contact = () => {
                                 placeholder="Comment pouvons-nous vous aider ?"
                             ></textarea>
                         </div>
-                        <button type="submit" className="btn btn-primary btn-block">Envoyer le message</button>
+                        {submitMessage.text && (
+                            <div className={`submit-message ${submitMessage.type}`}>
+                                {submitMessage.text}
+                            </div>
+                        )}
+                        <button
+                            type="submit"
+                            className="btn btn-primary btn-block"
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+                        </button>
                     </form>
                 </div>
             </div>
