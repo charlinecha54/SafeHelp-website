@@ -33,7 +33,7 @@ const Contact = () => {
                     from_name: formData.name,
                     from_email: formData.email,
                     message: formData.message,
-                    to_email: 'charline.petit@epitech.eu, paul.sinsoulieu@epitech.eu, yanis.ktab@epitech.eu'
+                    to_email: 'charline.petit@epitech.eu'
                 },
                 'YOUR_PUBLIC_KEY'   // Remplacer par votre Public Key
             );
