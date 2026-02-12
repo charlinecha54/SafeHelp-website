@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Linkedin, Copy } from 'lucide-react';
-import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
@@ -11,47 +10,37 @@ const Contact = () => {
     });
 
     const [copiedEmail, setCopiedEmail] = useState('');
-    const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState({ type: '', text: '' });
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        setIsSubmitting(true);
-        setSubmitMessage({ type: '', text: '' });
 
-        try {
-            // Configuration EmailJS - À CONFIGURER avec vos propres identifiants
-            // Visitez https://www.emailjs.com/ pour créer un compte gratuit
-            const result = await emailjs.send(
-                'YOUR_SERVICE_ID',  // Remplacer par votre Service ID
-                'YOUR_TEMPLATE_ID', // Remplacer par votre Template ID
-                {
-                    from_name: formData.name,
-                    from_email: formData.email,
-                    message: formData.message,
-                    to_email: 'charline.petit@epitech.eu'
-                },
-                'YOUR_PUBLIC_KEY'   // Remplacer par votre Public Key
-            );
+        // Créer le contenu de l'email
+        const subject = encodeURIComponent(`Nouveau message de ${formData.name}`);
+        const body = encodeURIComponent(
+            `Nom: ${formData.name}\n` +
+            `Email: ${formData.email}\n\n` +
+            `Message:\n${formData.message}`
+        );
 
-            setSubmitMessage({
-                type: 'success',
-                text: 'Merci pour votre message ! Nous vous répondrons bientôt.'
-            });
+        // Ouvrir le client email
+        window.location.href = `mailto:charline.petit@epitech.eu?subject=${subject}&body=${body}`;
+
+        // Afficher un message de confirmation
+        setSubmitMessage({
+            type: 'success',
+            text: 'Votre client email va s\'ouvrir. Cliquez sur "Envoyer" pour nous contacter !'
+        });
+
+        // Réinitialiser le formulaire après un court délai
+        setTimeout(() => {
             setFormData({ name: '', email: '', message: '' });
-        } catch (error) {
-            console.error('Erreur lors de l\'envoi du message:', error);
-            setSubmitMessage({
-                type: 'error',
-                text: 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement par email.'
-            });
-        } finally {
-            setIsSubmitting(false);
-        }
+            setSubmitMessage({ type: '', text: '' });
+        }, 3000);
     };
 
     const handleCopy = (email) => {
@@ -160,9 +149,8 @@ const Contact = () => {
                         <button
                             type="submit"
                             className="btn btn-primary btn-block"
-                            disabled={isSubmitting}
                         >
-                            {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+                            Envoyer le message
                         </button>
                     </form>
                 </div>
